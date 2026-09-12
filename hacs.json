@@ -1,5 +1,5 @@
 {
-  "name": "Segmented Entities Card",
+  "name": "HA Segmented Entities Card",
   "render_readme": true,
-  "filename": "segmented-entities-card.js"
+  "filename": "ha-segmented-entities-card.js"
 }

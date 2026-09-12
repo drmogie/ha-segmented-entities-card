@@ -1,5 +1,5 @@
 /*
- * Segmented Entities Card
+ * HA Segmented Entities Card
  * A Home Assistant Lovelace card that lets you build a card out of
  * configurable "segments". Each segment can be aligned independently
  * (top/bottom via column direction, left/right via row direction, plus
@@ -8,17 +8,17 @@
  * HA's active/inactive icon coloring) unless overridden, and each entity
  * can independently show/hide its icon, name, and state.
  *
- * Install: copy this file to <config>/www/segmented-entities-card.js,
+ * Install: copy this file to <config>/www/ha-segmented-entities-card.js,
  * add it as a Lovelace resource (Settings > Dashboards > Resources):
- *   URL: /local/segmented-entities-card.js   Type: JavaScript Module
- * Then add a card with type: custom:segmented-entities-card
+ *   URL: /local/ha-segmented-entities-card.js   Type: JavaScript Module
+ * Then add a card with type: custom:ha-segmented-entities-card
  * (the visual editor is available from the card picker).
  */
 (() => {
   // Bail out cleanly if this file somehow loads twice (e.g. resource
   // added more than once) — re-defining a custom element throws and can
   // take the whole module down with it.
-  if (customElements.get("segmented-entities-card")) return;
+  if (customElements.get("ha-segmented-entities-card")) return;
 
   // Grab LitElement off an already-registered HA element rather than
   // bundling our own copy. IMPORTANT: at the moment this script first
@@ -61,7 +61,7 @@
         setTimeout(() => defineCard(retries - 1), 300);
       } else {
         console.error(
-          "segmented-entities-card: could not find a LitElement base class " +
+          "ha-segmented-entities-card: could not find a LitElement base class " +
             "to extend — the Home Assistant frontend may not have finished " +
             "loading. Try reloading the page."
         );
@@ -72,7 +72,7 @@
     const html = LitElement.prototype.html;
     const css = LitElement.prototype.css;
 
-    const CARD_VERSION = "2026.09.12.1";
+    const CARD_VERSION = "2026.09.12.2";
 
   // ---------------------------------------------------------------------
   // Domain default icon / color helpers
@@ -449,7 +449,7 @@
   // ---------------------------------------------------------------------
   // Card
   // ---------------------------------------------------------------------
-  class SegmentedEntitiesCard extends LitElement {
+  class HaSegmentedEntitiesCard extends LitElement {
     static get properties() {
       return { hass: {}, _config: {}, _templateResults: { state: true } };
     }
@@ -469,7 +469,7 @@
     }
 
     static getConfigElement() {
-      return document.createElement("segmented-entities-card-editor");
+      return document.createElement("ha-segmented-entities-card-editor");
     }
 
     static getStubConfig() {
@@ -490,7 +490,7 @@
     setConfig(config) {
       if (!config || !Array.isArray(config.segments)) {
         throw new Error(
-          "segmented-entities-card: a 'segments' array is required"
+          "ha-segmented-entities-card: a 'segments' array is required"
         );
       }
       this._config = config;
@@ -563,7 +563,7 @@
           )
           .catch((err) => {
             console.error(
-              "segmented-entities-card: template render failed",
+              "ha-segmented-entities-card: template render failed",
               err
             );
             delete this._templateUnsubs[key];
@@ -1216,7 +1216,7 @@
   // ---------------------------------------------------------------------
   // Editor
   // ---------------------------------------------------------------------
-  class SegmentedEntitiesCardEditor extends LitElement {
+  class HaSegmentedEntitiesCardEditor extends LitElement {
     static get properties() {
       return { hass: {}, _config: {} };
     }
@@ -3536,28 +3536,28 @@
   }
 
     try {
-      customElements.define("segmented-entities-card", SegmentedEntitiesCard);
+      customElements.define("ha-segmented-entities-card", HaSegmentedEntitiesCard);
       customElements.define(
-        "segmented-entities-card-editor",
-        SegmentedEntitiesCardEditor
+        "ha-segmented-entities-card-editor",
+        HaSegmentedEntitiesCardEditor
       );
     } catch (err) {
       // Already defined (e.g. resource loaded twice) — nothing else to do.
-      console.warn("segmented-entities-card: element already defined", err);
+      console.warn("ha-segmented-entities-card: element already defined", err);
       return;
     }
 
     window.customCards = window.customCards || [];
     window.customCards.push({
-      type: "segmented-entities-card",
-      name: "Segmented Entities Card",
+      type: "ha-segmented-entities-card",
+      name: "HA Segmented Entities Card",
       description:
         "Build a card from aligned segments of text and entities, with domain default icons/colors and per-entity show/hide state.",
       preview: false,
     });
 
     console.info(
-      `%c SEGMENTED-ENTITIES-CARD %c v${CARD_VERSION} `,
+      `%c HA-SEGMENTED-ENTITIES-CARD %c v${CARD_VERSION} `,
       "color: white; background: #039be5; font-weight: 700;",
       "color: #039be5; background: white; font-weight: 700;"
     );

@@ -1,4 +1,4 @@
-# Segmented Entities Card
+# HA Segmented Entities Card
 
 A custom [Home Assistant](https://www.home-assistant.io/) Lovelace card for
 building a single card out of independent, freely-arranged **segments** —
@@ -29,18 +29,22 @@ dashboard view.
 
 ### HACS (recommended)
 
+[![Open your Home Assistant instance and open a repository inside the Home Assistant Community Store.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=drmogie&repository=ha-segmented-entities-card&category=plugin)
+
 1. HACS → Frontend → ⋮ → Custom repositories → add this repository as
    type **Dashboard**.
-2. Install **Segmented Entities Card** from HACS.
+2. Install **HA Segmented Entities Card** from HACS.
 3. Add the resource (HACS usually does this for you). If not, see below.
 
 ### Manual
 
-1. Copy `segmented-entities-card.js` to
-   `<config>/www/segmented-entities-card/segmented-entities-card.js`.
+[![Open your Home Assistant instance and show your dashboard resources.](https://my.home-assistant.io/badges/lovelace_resources.svg)](https://my.home-assistant.io/redirect/lovelace_resources/)
+
+1. Copy `ha-segmented-entities-card.js` to
+   `<config>/www/ha-segmented-entities-card/ha-segmented-entities-card.js`.
 2. Go to **Settings → Dashboards → ⋮ → Resources** and add:
    ```
-   /local/segmented-entities-card/segmented-entities-card.js
+   /local/ha-segmented-entities-card/ha-segmented-entities-card.js
    ```
    as a **JavaScript Module**.
 3. Hard-refresh your browser (Ctrl+Shift+R / Cmd+Shift+R).
@@ -52,11 +56,11 @@ dashboard view.
 
 ## Quick start
 
-Add a new card, search for **"Segmented Entities Card"**, and use the
+Add a new card, search for **"HA Segmented Entities Card"**, and use the
 visual editor — or paste YAML like this:
 
 ```yaml
-type: custom:segmented-entities-card
+type: custom:ha-segmented-entities-card
 title: Living Room
 segments:
   - direction: row
