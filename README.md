@@ -1,4 +1,4 @@
-# HA Segmented Entities Card
+# Segmented Entities Card
 
 A custom [Home Assistant](https://www.home-assistant.io/) Lovelace card for
 building a single card out of independent, freely-arranged **segments** —
@@ -33,7 +33,7 @@ dashboard view.
 
 1. HACS → Frontend → ⋮ → Custom repositories → add this repository as
    type **Dashboard**.
-2. Install **HA Segmented Entities Card** from HACS.
+2. Install **Segmented Entities Card** from HACS.
 3. Add the resource (HACS usually does this for you). If not, see below.
 
 ### Manual
@@ -56,7 +56,7 @@ dashboard view.
 
 ## Quick start
 
-Add a new card, search for **"HA Segmented Entities Card"**, and use the
+Add a new card, search for **"Segmented Entities Card"**, and use the
 visual editor — or paste YAML like this:
 
 ```yaml

@@ -1,5 +1,5 @@
 /*
- * HA Segmented Entities Card
+ * Segmented Entities Card
  * A Home Assistant Lovelace card that lets you build a card out of
  * configurable "segments". Each segment can be aligned independently
  * (top/bottom via column direction, left/right via row direction, plus
@@ -3550,7 +3550,7 @@
     window.customCards = window.customCards || [];
     window.customCards.push({
       type: "ha-segmented-entities-card",
-      name: "HA Segmented Entities Card",
+      name: "Segmented Entities Card",
       description:
         "Build a card from aligned segments of text and entities, with domain default icons/colors and per-entity show/hide state.",
       preview: false,
